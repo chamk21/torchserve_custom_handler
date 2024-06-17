@@ -64,7 +64,9 @@ class ModelHandler(BaseHandler):
     def postprocess(self, inference_output):
         # Take output from network and post-process to desired format
         postprocess_output = inference_output
-        return postprocess_output
+        np_arr = postprocess_output.detach().cpu().numpy()
+        np_arr_list = np_arr.tolist()
+        return np_arr_list
 
     def handle(self, data, context):
         model_input = self.preprocess(data)
