@@ -1,0 +1,2 @@
+torch-model-archiver --model-name house --version 1.0 --model-file $(pwd)/model_store/house.py --serialized-file $(pwd)/model_store/housing.pt --handler $(pwd)/model_store/my_handler.py --export-path ./model_store/ --requirements-file $(pwd)/model_store/requirements.txt --force
+curl http://127.0.0.1:8080/predictions/house -T input_data.json
